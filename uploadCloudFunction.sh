@@ -1,0 +1,1 @@
+"/Applications/wechatwebdevtools.app/Contents/MacOS/cli" cloud functions deploy --e cloud1-5g5oe2k1d4d8d78e --n quickstartFunctions --r --project "/Users/macair/WeChatProjects/music" --report_first --report
