@@ -2,28 +2,29 @@
 const { isMac } = require('../../envList.js');
 
 Component({
-
   /**
    * 页面的初始数据
    */
   data: {
     showUploadTip: false,
-    tipText: isMac ? 'sh ./uploadCloudFunction.sh' : './uploadCloudFunction.bat'
+    tipText: isMac
+      ? 'sh ./uploadCloudFunction.sh'
+      : './uploadCloudFunction.bat',
   },
   properties: {
-    showUploadTipProps: Boolean
+    showUploadTipProps: Boolean,
   },
   observers: {
-    showUploadTipProps: function(showUploadTipProps) {
+    showUploadTipProps: function (showUploadTipProps) {
       this.setData({
-        showUploadTip: showUploadTipProps
+        showUploadTip: showUploadTipProps,
       });
-    }
+    },
   },
   methods: {
     onChangeShowUploadTip() {
       this.setData({
-        showUploadTip: !this.data.showUploadTip
+        showUploadTip: !this.data.showUploadTip,
       });
     },
 
@@ -32,6 +33,5 @@ Component({
         data: this.data.tipText,
       });
     },
-  }
-
+  },
 });
