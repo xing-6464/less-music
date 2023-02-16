@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "",
   "usingComponents": {
-    "x-musiclist": "/components/musiclist/musiclist"
+    "x-musiclist": "/components/musiclist/index"
   }
 }
