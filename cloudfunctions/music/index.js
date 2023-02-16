@@ -2,8 +2,11 @@
 const cloud = require('wx-server-sdk')
 
 const TcbRouter = require('tcb-router')
+const axios = require('axios')
 
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV }) // 使用当前云环境
+
+const BASE_URL = 'http://musicapi.xiecheng.live'
 
 // 云函数入口函数
 exports.main = async (event, context) => {
@@ -20,6 +23,14 @@ exports.main = async (event, context) => {
       .then((res) => {
         return res
       })
+  })
+
+  app.router('musiclist', async (ctx, next) => {
+    const res = await axios.get(
+      BASE_URL + '/playlist/detail?id=' + parseInt(event.playlistId)
+    )
+
+    ctx.body = JSON.parse(res)
   })
 
   return app.serve()
