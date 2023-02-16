@@ -1,15 +1,25 @@
+let musiclist
+// 正在播放歌曲的index
+let nowPlayingIndx
+
 Page({
-  data: {},
-  onLoad(options) {
-    console.log(options.musicid)
+  data: {
+    picUrl: '',
   },
-  onReady() {},
-  onShow() {},
-  onHide() {},
-  onUnload() {},
-  onShareAppMessage() {
-    return {
-      title: '',
-    }
+  onLoad(options) {
+    nowPlayingIndx = options.index
+    musiclist = wx.getStorageSync('musiclist')
+    this._loadMusicDetail()
+  },
+  _loadMusicDetail() {
+    let music = musiclist[nowPlayingIndx]
+
+    wx.setNavigationBarTitle({
+      title: music.name,
+    })
+
+    this.setData({
+      picUrl: music.al.picUrl,
+    })
   },
 })

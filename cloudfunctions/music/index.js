@@ -35,5 +35,20 @@ exports.main = async (event, context) => {
     ctx.body = res.data
   })
 
+  app.router('songdetail', async (ctx, next) => {
+    let str = ''
+    for (let i = 0; i < event.trackIds.length; i++) {
+      str += event.trackIds[i].id + ','
+    }
+
+    let newstr = str.substring(0, str.length - 1)
+    console.log(newstr)
+    const res = await axios.get(
+      `${BASE_URL}/song/detail?ids=${newstr}&${ICODE}`
+    )
+
+    ctx.body = res.data
+  })
+
   return app.serve()
 }

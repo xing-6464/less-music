@@ -17,6 +17,7 @@ Page({
       })
       .then((res) => {
         const pl = res.result.playlist
+        console.log(pl)
         this.setData({
           musiclist: pl.tracks,
           listInfo: {
@@ -25,16 +26,26 @@ Page({
           },
         })
 
+        // wx.cloud
+        //   .callFunction({
+        //     name: 'music',
+        //     data: {
+        //       trackIds: pl.trackIds,
+        //       $url: 'songdetail',
+        //     },
+        //   })
+        //   .then((res) => {
+        //     console.log(res)
+        //     const rr = res.result
+        //     this.setData({
+        //       musiclist: rr.songs,
+        //     })
+        //   })
+        this._setMusiclist()
         wx.hideLoading()
       })
   },
-  onReady() {},
-  onShow() {},
-  onHide() {},
-  onUnload() {},
-  onShareAppMessage() {
-    return {
-      title: '',
-    }
+  _setMusiclist() {
+    wx.setStorageSync('musiclist', this.data.musiclist)
   },
 })

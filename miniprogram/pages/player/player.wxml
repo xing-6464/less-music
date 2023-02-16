@@ -1,1 +1,8 @@
-<view>New Page</view>
+<view class="player-container" style="background:url({{picUrl}}) center/cover no-repeat"></view>
+<view class="play-mask"></view>
+
+<view class="player-info">
+  <view class="player-disc">
+    <image class="player-img" src="{{picUrl}}"></image>
+  </view>
+</view>
