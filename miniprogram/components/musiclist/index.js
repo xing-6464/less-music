@@ -3,12 +3,25 @@ Component({
   properties: {
     musiclist: Array,
   },
-  data: {},
+  data: {
+    playingId: -1,
+  },
   lifetimes: {
     created() {},
     attached() {},
     moved() {},
     detached() {},
   },
-  methods: {},
+  methods: {
+    onSelect(event) {
+      const musicid = event.currentTarget.dataset.musicid
+      this.setData({
+        playingId: musicid,
+      })
+
+      wx.navigateTo({
+        url: `/pages/player/player?musicid=${musicid}`,
+      })
+    },
+  },
 })

@@ -4,6 +4,9 @@ Page({
     listInfo: {},
   },
   onLoad(options) {
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.cloud
       .callFunction({
         name: 'music',
@@ -21,6 +24,8 @@ Page({
             name: pl.name,
           },
         })
+
+        wx.hideLoading()
       })
   },
   onReady() {},
