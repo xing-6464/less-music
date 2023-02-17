@@ -7,6 +7,8 @@
         class="movable-view"
         damping="1000"
         x="{{movableDis}}"
+        bindchange="onChange"
+        bindtouchend="onTouchEnd"
       />
     </movable-area>
     <progress

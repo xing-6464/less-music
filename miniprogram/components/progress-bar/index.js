@@ -2,6 +2,7 @@ let movableAreaWidth = 0
 let movableViewWidth = 0
 const backgroundAudioManager = wx.getBackgroundAudioManager()
 let currentSec = -1 // 当前秒数
+let duration = 0 // 当前歌曲总时长, 秒为单位
 
 Component({
   behaviors: [],
@@ -25,6 +26,26 @@ Component({
     detached() {},
   },
   methods: {
+    onChange(event) {
+      if (event.detail.source === 'touch') {
+        this.data.progress =
+          (event.detail.x / (movableAreaWidth - movableViewWidth)) * 100
+        this.data.movableDis = event.detail.x
+        console.log(this.data.progress, this.data.movableDis)
+      }
+    },
+    onTouchEnd() {
+      console.log(this.data.progress, this.data.movableDis)
+      const currentTimeFmt = this._dateFormat(
+        Math.floor(backgroundAudioManager.currentTime)
+      )
+      this.setData({
+        progress: this.data.progress,
+        movableDis: this.data.movableDis,
+        ['showTime.currentTime']: `${currentTimeFmt.min}:${currentTimeFmt.sec}`,
+      })
+      backgroundAudioManager.seek((duration * this.data.progress) / 100)
+    },
     _getMovableDis() {
       const query = this.createSelectorQuery()
       query.select('.movable-area').boundingClientRect()
@@ -68,7 +89,7 @@ Component({
       backgroundAudioManager.onError(() => {})
     },
     _setTime() {
-      const duration = backgroundAudioManager.duration
+      duration = backgroundAudioManager.duration
       const durationFmt = this._dateFormat(duration)
       this.setData({
         ['showTime.totalTime']: `${durationFmt.min}:${durationFmt.sec}`,
