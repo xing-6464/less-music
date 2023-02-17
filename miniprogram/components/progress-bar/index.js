@@ -7,7 +7,9 @@ let isMoving = false // 表示当前进度条是否在拖动
 
 Component({
   behaviors: [],
-  properties: {},
+  properties: {
+    isSame: Boolean,
+  },
   data: {
     showTime: {
       currentTime: '00:00',
@@ -18,6 +20,9 @@ Component({
   },
   lifetimes: {
     ready() {
+      if (this.properties.isSame && this.data.showTime.totalTime === '00:00') {
+        this._setTime()
+      }
       this._getMovableDis()
       this._bindBGMEvent()
     },
@@ -59,9 +64,12 @@ Component({
     _bindBGMEvent() {
       backgroundAudioManager.onPlay(() => {
         isMoving = false
+        this.triggerEvent('musicPlay')
       })
       backgroundAudioManager.onStop(() => {})
-      backgroundAudioManager.onPause(() => {})
+      backgroundAudioManager.onPause(() => {
+        this.triggerEvent('musicPause')
+      })
       backgroundAudioManager.onWaiting(() => {})
       backgroundAudioManager.onCanplay(() => {
         if (typeof backgroundAudioManager.duration === 'undefined') {

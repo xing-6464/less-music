@@ -1,3 +1,5 @@
+const app = getApp()
+
 Component({
   behaviors: [],
   properties: {
@@ -5,6 +7,13 @@ Component({
   },
   data: {
     playingId: -1,
+  },
+  pageLifetimes: {
+    show() {
+      this.setData({
+        playingId: parseInt(app.getPlayMusicId()),
+      })
+    },
   },
   lifetimes: {
     created() {},
