@@ -1,28 +1,34 @@
-<view class="container">
-  <!-- 头部 -->
-  <view class="header">
-    <view class="publish-container" bindtap="onPublish">
-      <i class="iconfont icon-fabu"></i>
-    </view>
-    <view class="search-container">
-      <x-search iconfont="iconfont" icon-sousuo="icon-sousuo" />
-    </view>
-  </view>
-
-  <!-- 博客可怕列表 -->
-  <view class="blog-list">
-    <block wx:for="{{blogList}}" wx:key="_id">
-      <view class="blog-panel">
-        <x-blog-card blog="{{item}}" />
+<view class="page">
+  <view class="container">
+    <!-- 头部 -->
+    <view class="header">
+      <view class="publish-container" bindtap="onPublish">
+        <i class="iconfont icon-fabu"></i>
       </view>
-    </block>
-  </view>
+      <view class="search-container">
+        <x-search iconfont="iconfont" icon-sousuo="icon-sousuo" />
+      </view>
+    </view>
 
-  <!-- 底部弹出层 -->
-  <x-login
-    modalShow="{{modalShow}}"
-    bindloginsuccess="onLoginSuccess"
-    bindloginfail="onLoginFail"
-  >
-  </x-login>
+    <!-- 博客可怕列表 -->
+    <view class="blog-list">
+      <block wx:for="{{blogList}}" wx:key="_id">
+        <view class="blog-panel">
+          <x-blog-card 
+            blog="{{item}}" 
+            data-blogid="{{item._id}}"
+            bindtap="goComment"
+          />
+        </view>
+      </block>
+    </view>
+
+    <!-- 底部弹出层 -->
+    <x-login
+      modalShow="{{modalShow}}"
+      bindloginsuccess="onLoginSuccess"
+      bindloginfail="onLoginFail"
+    >
+    </x-login>
+  </view>
 </view>

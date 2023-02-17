@@ -7,25 +7,31 @@ Page({
   onLoad(options) {
     this._loadBlogList()
   },
-  _loadBlogList() {
+  _loadBlogList(start = 0) {
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+
     wx.cloud
       .callFunction({
         name: 'blog',
         data: {
-          $url: 'list',
-          start: 0,
+          start,
           count: 10,
+          $url: 'list',
         },
       })
       .then((res) => {
         this.setData({
           blogList: this.data.blogList.concat(res.result),
         })
+
+        wx.hideLoading()
+        wx.stopPullDownRefresh()
       })
   },
   // 发布
   onPublish() {
-    // 判断微信是否授权
     this.setData({
       modalShow: true,
     })
@@ -37,9 +43,22 @@ Page({
     })
   },
   onLoginFail(event) {},
-  onShareAppMessage() {
-    return {
-      title: '',
-    }
+  goComment(event) {
+    wx.navigateTo({
+      url:
+        '/pages/blog-comment/blog-comment?blogId=' +
+        event.target.dataset.blogid,
+    })
+  },
+  // 页面是拉触底事件的处理函数
+  onReachBottom() {
+    this._loadBlogList(this.data.blogList.length)
+  },
+  // 页面相关处理函数--监听用户下拉动作
+  onPullDownRefresh() {
+    this.setData({
+      blogList: [],
+    })
+    this._loadBlogList()
   },
 })

@@ -23,5 +23,13 @@ Component({
     moved() {},
     detached() {},
   },
-  methods: {},
+  methods: {
+    onPreviewImage(event) {
+      const ds = event.target.dataset
+      wx.previewImage({
+        urls: ds.imgs,
+        current: ds.imgsrc,
+      })
+    },
+  },
 })

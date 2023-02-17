@@ -91,6 +91,7 @@ Page({
 
     wx.showLoading({
       title: '发布中',
+      mask: true,
     })
 
     const promiseArr = []
@@ -137,6 +138,11 @@ Page({
 
             // 返回blog页面，并且刷新
             wx.navigateBack()
+            const pages = getCurrentPages()
+            // 获取上一个页面
+            const prevPage = pages[pages.length - 2]
+
+            prevPage.onPullDownRefresh()
           })
       })
       .catch((err) => {
