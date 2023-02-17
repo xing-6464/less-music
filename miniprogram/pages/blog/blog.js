@@ -1,25 +1,11 @@
 Page({
-  data: {
-
-  },
-  onLoad(options) {
-
-  },
-  onReady() {
-
-  },
-  onShow() {
-
-  },
-  onHide() {
-
-  },
-  onUnload() {
-
-  },
+  data: {},
+  onLoad(options) {},
+  // 发布
+  onPublish() {},
   onShareAppMessage() {
     return {
       title: '',
-    };
+    }
   },
-});
+})
