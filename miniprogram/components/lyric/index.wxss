@@ -1,3 +1,18 @@
-:host {
+.lyric-scroll {
+  height: 70%;
+  color: #ccc;
+  font-size: 32rpx;
+}
 
+.lyric-panel {
+  position: relative;
+  top: 50%;
+}
+
+.lyric {
+  min-height: 64rpx;
+}
+
+.heightlight-lyric {
+  color: #d43c33;
 }
