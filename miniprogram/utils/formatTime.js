@@ -13,10 +13,12 @@ module.exports = (date) => {
   }
   for (let k in o) {
     if (new RegExp('(' + k + ')').test(fmt)) {
-      fmt = fmt.replace(RegExp.$1, o[k].toString().length == 1 ? '0' + o[k] : o[k])
+      fmt = fmt.replace(
+        RegExp.$1,
+        o[k].toString().length == 1 ? '0' + o[k] : o[k]
+      )
     }
   }
 
-  // console.log(fmt)
   return fmt
 }
