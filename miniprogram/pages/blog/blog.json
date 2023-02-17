@@ -2,6 +2,6 @@
   "navigationBarTitleText": "发现",
   "usingComponents": {
     "x-search": "/components/search/index",
-    "x-bottom-modal": "/components/bottom-modal/index"
+    "x-login": "/components/login/index"
   }
 }
