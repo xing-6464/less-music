@@ -57,7 +57,7 @@
   height: 100%;
 }
 
-.icon-shanchu {
+.icon-shanchu1 {
   position: absolute;
   top: 0;
   right: 0;

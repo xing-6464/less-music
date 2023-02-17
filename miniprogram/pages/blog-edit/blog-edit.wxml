@@ -9,9 +9,14 @@
 
   <view class="image-list">
     <!-- 显示图片 -->
-
+    <block wx:for="{{images}}" wx:key="*this">
+      <view class="image-wrap">
+        <image class="images" src="{{item}}" mode="aspectFill" bindtap="onPreviewImage" data-imgSrc="{{item}}"></image>
+        <i class="iconfont icon-shanchu1" bindtap="onDelImage" data-index="{{index}}"></i>
+      </view>
+    </block>
     <!-- 选择图片 -->
-    <view class="image-wrap selectphoto">
+    <view class="image-wrap selectphoto" bindtap="onChooseImage" hidden="{{!selectPhoto}}">
       <i class="iconfont icon-jiahao"></i>
     </view>
   </view>
