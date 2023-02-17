@@ -61,7 +61,7 @@ Page({
       })
       .then((res) => {
         let result = res.result.data
-        if (result.url == null) {
+        if (result[0].url == null) {
           wx.showToast({
             title: '无权限播放',
           })
