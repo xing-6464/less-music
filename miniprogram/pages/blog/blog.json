@@ -3,7 +3,8 @@
   "usingComponents": {
     "x-search": "/components/search/index",
     "x-login": "/components/login/index",
-    "x-blog-card": "/components/blog-card/index"
+    "x-blog-card": "/components/blog-card/index",
+    "x-blog-ctrl": "/components/blog-ctrl/index"
   },
   "enablePullDownRefresh": true
 }

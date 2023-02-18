@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "音乐",
   "usingComponents": {
     "x-playlist": "/components/playlist/index"
   },
