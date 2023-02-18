@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "我的发现",
   "usingComponents": {
-    "x-blog-ctrl": "/components/blog-ctrl/index"
+    "x-blog-ctrl": "/components/blog-ctrl/index",
+    "x-blog-card": "/components/blog-card/index"
   }
 }

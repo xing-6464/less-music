@@ -25,6 +25,7 @@ Component({
   },
   methods: {
     onPreviewImage(event) {
+      console.log(event)
       const ds = event.target.dataset
       wx.previewImage({
         urls: ds.imgs,
