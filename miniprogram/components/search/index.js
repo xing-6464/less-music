@@ -1,3 +1,4 @@
+let keyword = ''
 Component({
   behaviors: [],
   properties: {
@@ -14,5 +15,14 @@ Component({
     moved() {},
     detached() {},
   },
-  methods: {},
+  methods: {
+    onInput(event) {
+      keyword = event.detail.value
+    },
+    onSearch() {
+      this.triggerEvent('search', {
+        keyword,
+      })
+    },
+  },
 })
