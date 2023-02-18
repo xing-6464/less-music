@@ -107,7 +107,7 @@ Component({
     onSend() {
       // 插入数据库
       let content = this.data.content
-      if (content.trim() == '') {
+      if (content.trim() === '') {
         wx.showModal({
           title: '评论内容不能为空',
           content: '',

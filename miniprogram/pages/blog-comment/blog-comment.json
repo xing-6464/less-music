@@ -1,4 +1,7 @@
 {
-  "navigationBarTitleText": "",
-  "usingComponents": {}
+  "navigationBarTitleText": "正文",
+  "usingComponents": {
+    "x-blog-ctrl": "/components/blog-ctrl/index",
+    "x-blog-card": "/components/blog-card/index"
+  }
 }
