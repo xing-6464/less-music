@@ -40,4 +40,12 @@ Page({
         wx.hideLoading()
       })
   },
+  onShareAppMessage() {
+    const blog = this.data.blog
+
+    return {
+      title: blog.content,
+      path: `/pages/blog-comment/blog-comment?blogId=${blog._id}`,
+    }
+  },
 })
