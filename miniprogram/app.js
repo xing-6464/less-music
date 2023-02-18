@@ -72,7 +72,7 @@ App({
       .then((res) => {
         const openid = res.result.openid
         this.globalData.openid = openid
-        if (wx.getStorageSync(openid) == '') {
+        if (wx.getStorageSync(openid) === '') {
           wx.setStorageSync(openid, [])
         }
       })
