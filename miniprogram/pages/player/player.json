@@ -1,7 +1,7 @@
 {
-  "navigationBarTitleText": "",
   "usingComponents": {
     "x-progress-bar": "/components/progress-bar/index",
     "x-lyric": "/components/lyric/index"
-  }
+  },
+  "disableScroll": true
 }

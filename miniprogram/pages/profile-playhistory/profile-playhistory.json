@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "最近播放",
+  "usingComponents": {
+    "x-musiclist": "/components/musiclist/index"
+  }
+}
