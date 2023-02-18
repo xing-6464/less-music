@@ -52,7 +52,7 @@ Component({
           })
           setTimeout(() => {
             wx.navigateTo({
-              url: '../userinfo/userinfo',
+              url: '/pages/userinfo/userinfo',
             })
           }, 1500)
         },
