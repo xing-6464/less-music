@@ -1,7 +1,7 @@
 <view>
   <form bindsubmit="formSubmit">
     <!-- 头像 -->
-    <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+    <button class="avatar-wrapper" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
       <image class="avatar" src="{{avatarUrl}}"></image>
     </button>
 

@@ -12,11 +12,11 @@
 </view>
 
 
-<x-login modalShow="{{loginShow}}" bindloginsuccess="onLoginsuccess" bindloginfail="onLoginfail" />
+<x-login modalShow="{{loginShow}}" bind:loginsuccess="onLoginsuccess" bind:loginfail="onLoginfail" />
 
 <x-bottom-modal modalShow="{{modalShow}}">
 	<view slot="modal-content">
 		<textarea bindinput="onInput" name="content" class="comment-content" placeholder="写评论" value="{{content}}" fixed="true"></textarea>
-		<button class="send" form-type="submit" bindtap="onSend">发送</button>
+		<button class="send" form-type="submit" bind:tap="onSend">发送</button>
 	</view>
 </x-bottom-modal>
