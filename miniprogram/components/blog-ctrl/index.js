@@ -31,8 +31,6 @@ Component({
    */
   methods: {
     onComment() {
-      // 20221128小程序用户头像昵称获取规则调整
-      // 判断本地存储中是否有用户信息
       // 用户信息在本地存储，key为openid + '-userinfo'
       const { openid } = app.globalData
       wx.getStorage({
@@ -157,7 +155,7 @@ Component({
     },
     // 调起客户端小程序订阅消息界面
     subscribeMsg() {
-      const tmplId = 'Fz8q-QVsnTQ-Y8KV4UZz7DuoFkaAW5qbMcKUB8vYmbc'
+      const tmplId = 'QWmKrfr1K9skTeDokBaCzD9INe6teSLxuA-G6cYlPkU'
       wx.requestSubscribeMessage({
         tmplIds: [tmplId],
         success: (res) => {

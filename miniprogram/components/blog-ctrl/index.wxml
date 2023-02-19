@@ -12,7 +12,7 @@
 </view>
 
 
-<x-login modalShow="{{loginShow}}" bind:loginsuccess="onLoginsuccess" bind:loginfail="onLoginfail" />
+<x-login modalShow="{{loginShow}}" bindloginsuccess="onLoginsuccess" bindloginfail="onLoginfail" />
 
 <x-bottom-modal modalShow="{{modalShow}}">
 	<view slot="modal-content">
